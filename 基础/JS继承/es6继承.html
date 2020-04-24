@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class Person {
+      constructor(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+      }
+      sayName() {
+        console.log("My name is " + this.name);
+      }
+    }
+
+    // 实现继承关键字 extends
+    class Man extends Person {
+      // 依然需要传参父元素参数
+      constructor(name, age, gender, son) {
+        // 子类必须在constructor方法中调用super方法，否则新建实例时会报错
+        super(name, age, gender);
+        this.son = son
+      }
+      saySon() {
+        console.log("my son is " + this.son);
+      }
+    }
+
+    let man1 = new Man('11','222','33','yangman')
+    console.log(man1)
+    man1.sayName()
+    man1.saySon()
+  </script>
+</html>

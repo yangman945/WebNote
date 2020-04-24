@@ -1,0 +1,9 @@
+CACHE MANIFEST
+    	#v0.1
+    	CACHE:
+   	 	js/index.js
+    		css/index.css
+    	NETWORK:
+    		images/logo.png
+    	FALLBACK:
+    		*.html /404.html /* / /404.html 或 /html/ /404.html 也可*/

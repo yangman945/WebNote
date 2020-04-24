@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btn">点我</div>
+</body>
+<script>
+    window.onload = function(){
+        // 创建节流函数
+        function throttle(fn){
+            // 创建一个标记 当标记为true时标识当前函数可执行
+            let flag = true
+            return function(){
+                // 如果不为true则return
+                if(!flag){
+                    return
+                }
+                // 标志为false防止被重复触发
+                flag = false
+                setTimeout(()=>{
+                    fn.call(this,arguments)
+                    console.log(this,"this")
+                    console.log(arguments,"参数")
+                    // 事件执行完毕后 告诉大家又可以执行啦
+                    flag = true
+                },1500)
+            }
+        }
+        // 需要节流的函数
+        function handleFn(){
+            console.log('节流啊，节流啊')
+        }
+
+        let btn = document.getElementById('btn')
+        btn.onclick = throttle(handleFn)
+
+    }
+</script>
+</html>

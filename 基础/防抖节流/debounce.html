@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btn" style="width: 100px;height: 100px;">click me</div>
+</body>
+<script>
+    window.onload = function(){
+        
+        // 创建防抖函数
+        // fn接收需要防抖的事件
+        function debouce(fn){
+            let timer = null //定时器标志，用于存放定时器返回值
+            return function(){
+                clearInterval(timer) //未执行期间点击将会使定时器销毁
+                timer = setTimeout(()=>{
+                    fn.call(this,arguments)
+                },1500)
+            }
+        }
+        // 需要进行防抖动的函数
+        function handleBtn(){
+            console.log('hello i fine thank')
+        }
+
+        // 进行防抖处理
+        let btn = document.getElementById('btn')
+        btn.onclick = debouce(handleBtn)
+    }
+</script>
+</html>

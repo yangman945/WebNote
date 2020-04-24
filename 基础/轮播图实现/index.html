@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      .content {
+        width: 800px;
+        height: 200px;
+        margin: 200px auto;
+        border: 1px solid red;
+        background-color: aqua;
+      }
+      .box {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+      }
+      #imgList {
+        width: 600%;
+        position: absolute;
+        left: 0;
+      }
+      #imgList li {
+        width: 800px;
+        float: left;
+      }
+      .list {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        margin-left: -85px;
+      }
+      .list i {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #333;
+        float: left;
+        font-style: normal;
+        line-height: 20px;
+        font-size: 14px;
+        text-align: center;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .list i:last-child {
+      margin-right: 0;
+    }
+    .list i.current {
+      background-color: skyblue;
+      color: #fff;
+    }
+    .bth{
+        position: absolute;
+        width: 100%;
+        top: 40%;
+    }
+    #left,#right{
+      width: 20px;
+      height: 40px;
+      position: absolute;
+      font: 20px/40px "consolas";
+      color: #fff;
+      background-color: rgba(0, 0, 0, .3);
+      text-align: center;
+      cursor: pointer;
+    }
+    #right{
+        right: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="box" id="box">
+        <!-- 轮播内容 -->
+        <ul id="imgList">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+        </ul>
+        <!-- 轮播圆点序号 -->
+        <div class="list">
+          <i class="current">1</i>
+          <i>2</i>
+          <i>3</i>
+          <i>4</i>
+          <i>5</i>
+          <i>6</i>
+        </div>
+        <!-- 前进后退按钮 -->
+        <div class="bth">
+            <i id="left">《</i>
+            <i id="right">》</i>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>

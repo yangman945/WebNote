@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    function Person(name,age,gender) {
+        this.name = name
+        this.age = age
+        this.gender = gender
+    }
+    Person.prototype.sayName = function(){
+        console.log('我的名字叫' + this.name)
+    }
+    function Man(name,age,gender,color){
+      // Person借用了这个构造函数的this，Person内部的this指向了Man
+        Person.call(this,name,age,gender)
+        this.color = color
+    }
+    // 利用原型链的访问规则找到方法
+    Man.prototype = new Person()
+    let man1 = new Man('洗羊羊','男','10','green')
+    console.log(man1)
+    man1.sayName()
+  </script>
+</html>

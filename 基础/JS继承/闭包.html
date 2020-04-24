@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function f1(){
+    //     let a = 100
+    //     function f2(){
+    //         a++
+    //     console.log(a,"f2内部的a")
+    //     }
+    //     console.log(a,"f1内部的a")
+    //     return f2
+    // }
+    // f1()()
+        // 定时器的this是全局作用域，for在i=11时会结束，而异步队列排序着i=1，i=2...,i=11,所以最终输出11个11，   
+        // 解决方案就是给每次执行的i存储在单独的作用域中，这样每个作用域内的i就不会相互影响了
+    for(var i = 1; i <= 10; i++ ){
+        (function(){
+            var j = i
+            setTimeout(()=>{console.log(j)},1000)
+        }())
+    }
+    console.log(i)
+</script>
+</html>
