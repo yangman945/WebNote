@@ -18,7 +18,8 @@
             return function(){
                 clearInterval(timer) //未执行期间点击将会使定时器销毁
                 timer = setTimeout(()=>{
-                    fn.call(this,arguments)
+                    // fn.call(this,arguments)
+                    fn()
                 },1500)
             }
         }
